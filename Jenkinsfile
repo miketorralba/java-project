@@ -12,7 +12,7 @@ node('linux') {
 		junit 'reports/result.xml'   
 	}
 	stage('Deploy') {    
-		sh 'cp /workspace/java-pipeline/dist/rectangle-${BUILD_NUMBER}.jar jenkins-s3bucket-1gkpskz7vsi2g.s3.amazonaws.com'   
+		sh 'cp rectangle-${BUILD_NUMBER}.jar jenkins-s3bucket-1gkpskz7vsi2g.s3.amazonaws.com'   
 	}
 	stage('Report') { 
       withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '31f55ea0-bbbf-4235-b46d-b372ca3af836', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
